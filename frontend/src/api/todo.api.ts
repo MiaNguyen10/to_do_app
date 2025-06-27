@@ -32,6 +32,11 @@ export type ToDosResponse = {
     message: string;
 }
 
+export type ToDoResponse = {
+    task: ToDo;
+    message: string;
+}
+
 export type ToDoCreateResponse = {
     message: string;
     task_id: number;
@@ -48,8 +53,8 @@ export const getToDos = async (user_id: number) => {
 }
 
 export const getToDoById = async (task_id: number) => {
-    const response = await axiosInstance.get<ToDo>(`/tasks/detail//${task_id}`);
-    return response.data;
+    const response = await axiosInstance.get<ToDoResponse>(`/tasks/detail/${task_id}`);
+    return response.data.task;
 }
 
 export const createToDo = async (todo: ToDoCreate) => {
