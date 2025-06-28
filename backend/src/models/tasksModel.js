@@ -45,7 +45,7 @@ const Tasks = {
       const pool = await db.poolPromise;
       const result = await pool.request().input("user_id", sql.Int, user_id)
         .query(`
-            SELECT t.id, t.title, s.name as status, p.name as priority, t.description, t.due_date, t.created_at, t.updated_at from tasks t
+            SELECT t.id, t.title, t.status_id, s.name as status, t.priority_id, p.name as priority, t.description, t.due_date, t.created_at, t.updated_at from tasks t
             LEFT JOIN users u ON t.user_id = u.id
             LEFT JOIN status s ON t.status_id = s.id
             LEFT JOIN priority p ON t.priority_id = p.id
