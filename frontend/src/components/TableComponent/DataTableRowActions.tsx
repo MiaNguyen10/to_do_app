@@ -52,12 +52,12 @@ export function DataTableRowActions<TData extends { id: string | number }>({
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[160px]">
         <DropdownMenuItem
-          onClick={() => navigation(`/todos/${row.original.id}`)}
+          onClick={() => navigation(`/tasks/${row.original.id}`)}
         >
           View details
         </DropdownMenuItem>
         <DropdownMenuItem
-          onClick={() => navigation(`/todos/${row.original.id}/edit`)}
+          onClick={() => navigation(`/tasks/${row.original.id}/edit`)}
         >
           Edit
         </DropdownMenuItem>

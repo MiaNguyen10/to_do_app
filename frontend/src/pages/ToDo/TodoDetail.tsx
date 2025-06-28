@@ -1,8 +1,9 @@
 import { getToDoById } from "@/api/todo.api";
-import { useQuery } from "@tanstack/react-query";
-import { User, ArrowLeft } from "lucide-react";
-import { useParams, useNavigate } from "react-router";
+import UserNav from "@/components/NavComponent/UserNav";
 import { Button } from "@/components/ui/button";
+import { useQuery } from "@tanstack/react-query";
+import { ArrowLeft } from "lucide-react";
+import { useNavigate, useParams } from "react-router";
 
 const TodoDetail = () => {
   const { task_id } = useParams<{ task_id: string }>();
@@ -26,20 +27,11 @@ const TodoDetail = () => {
         <div>
           <h2 className="text-2xl font-bold tracking-tight">Welcome back!</h2>
           <p className="text-muted-foreground mt-2">
-            Here&apos;s a list of your tasks !
+            Here&apos;s details of your task !
           </p>
         </div>
         <div className="flex items-center space-x-2">
-          <button
-            className="flex float-right items-center rounded-full p-3 hover:bg-gray-100 focus:outline-none"
-            aria-label="Open profile"
-            type="button"
-            onClick={() => {
-              // TODO: Open profile modal or navigate to profile page
-            }}
-          >
-            <User className="w-6 h-6 text-gray-500" />
-          </button>
+          <UserNav />
         </div>
       </div>
       {/* Todo detail content goes here */}
@@ -69,7 +61,7 @@ const TodoDetail = () => {
         onClick={() => navigate(-1)}
       >
         <ArrowLeft />
-        Back to to do list
+        Go Back to To Do List
       </Button>
     </div>
   );

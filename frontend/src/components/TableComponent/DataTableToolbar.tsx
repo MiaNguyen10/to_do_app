@@ -3,8 +3,8 @@ import { X, Plus } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { DataTableViewOptions } from "@/components/DataTableViewOptions";
-import { DataTableFacetedFilter } from "@/components/DataTableFacetedFilter";
+import { DataTableViewOptions } from "@/components/TableComponent/DataTableViewOptions";
+import { DataTableFacetedFilter } from "@/components/TableComponent/DataTableFacetedFilter";
 import { priorities, statuses } from "@/data/data";
 import { useNavigate } from "react-router";
 

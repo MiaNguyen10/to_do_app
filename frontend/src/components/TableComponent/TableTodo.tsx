@@ -22,11 +22,11 @@ import {
   TableRow,
 } from "@/components/ui/table"
 
-import { DataTablePagination } from "@/components/TablePagination"
-import { DataTableToolbar } from "@/components/DataTableToolbar"
+import { DataTablePagination } from "@/components/TableComponent/TablePagination"
+import { DataTableToolbar } from "@/components/TableComponent/DataTableToolbar"
 import { useQuery, useQueryClient } from "@tanstack/react-query"
 import { getToDos } from "@/api/todo.api"
-import { createColumns } from "@/components/columns"
+import { createColumns } from "@/components/TableComponent/columns"
 
 const TableTodo = () => {
   const [rowSelection, setRowSelection] = React.useState({})

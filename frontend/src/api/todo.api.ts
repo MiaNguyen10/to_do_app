@@ -3,6 +3,8 @@ import axiosInstance from "@/api/axiosInstance";
 export type ToDo = {
     id: string;
     title: string;
+    status_id: number;
+    priority_id: number;
     status: string;
     priority: string;
     description: string;
@@ -23,7 +25,7 @@ export type ToDoUpdate = {
     title: string;
     status_id: number;
     priority_id: number;
-    description: string;
+    description?: string;
     due_date?: string;
 }
 
@@ -64,7 +66,7 @@ export const createToDo = async (todo: ToDoCreate) => {
 
 export const updateToDo = async (todo: ToDoUpdate) => {
     const response = await axiosInstance.put<ToDoUpdateResponse>(`/tasks/update/${todo.task_id}`, todo);
-    return response.data;
+    return response.data.task;
 }
 
 export const deleteToDo = async (task_id: number) => {

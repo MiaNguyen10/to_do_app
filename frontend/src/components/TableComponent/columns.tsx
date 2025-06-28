@@ -4,8 +4,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 import { type ToDo } from "@/api/todo.api";
 import { statuses, priorities } from "@/data/data";
-import { DataTableColumnHeader } from "@/components/DataTableColumnHeader";
-import { DataTableRowActions } from "@/components/DataTableRowActions";
+import { DataTableColumnHeader } from "@/components/TableComponent/DataTableColumnHeader";
+import { DataTableRowActions } from "@/components/TableComponent/DataTableRowActions";
 
 export const createColumns = (onRefresh?: () => void): ColumnDef<ToDo>[] => [
   {
@@ -106,8 +106,10 @@ export const createColumns = (onRefresh?: () => void): ColumnDef<ToDo>[] => [
     ),
     cell: ({ row }) => {
       return (
-        <span className="max-w-[500px] truncate">
-          {new Date(row.getValue("due_date")).toLocaleDateString()}
+        <span className="max-w-[200px] truncate">
+          {row.getValue("due_date")
+            ? new Date(row.getValue("due_date")).toLocaleDateString()
+            : "No due date"}
         </span>
       );
     },

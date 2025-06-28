@@ -1,7 +1,11 @@
+import ProtectedRoute from "@/middlewares/ProtectedRoute";
 import Login from "@/pages/Auth/Login";
 import SignUp from "@/pages/Auth/SignUp";
+import Profile from "@/pages/Profile/Profile";
+import TodoCreate from "@/pages/ToDo/TodoCreate";
 import TodoDetail from "@/pages/ToDo/TodoDetail";
 import ToDos from "@/pages/ToDo/ToDos";
+import TodoUpdate from "@/pages/ToDo/TodoUpdate";
 import { createBrowserRouter } from "react-router";
 
 const router = createBrowserRouter([
@@ -14,13 +18,30 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: "/",
-    element: <ToDos />
+    element: <ProtectedRoute />,
+    children: [
+      {
+        path: "/",
+        element: <ToDos />,
+      },
+      {
+        path: "/tasks/:task_id",
+        element: <TodoDetail />,
+      },
+      {
+        path: "/tasks/:task_id/edit",
+        element: <TodoUpdate />,
+      },
+      {
+        path: "/tasks/create",
+        element: <TodoCreate />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />
+      }
+    ],
   },
-  {
-    path: "/todos/:task_id",
-    element: <TodoDetail />
-  }
 ]);
 
 export default router;
